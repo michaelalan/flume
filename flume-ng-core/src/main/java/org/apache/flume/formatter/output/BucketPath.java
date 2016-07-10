@@ -22,6 +22,7 @@ import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Preconditions;
 import org.apache.flume.Clock;
 import org.apache.flume.SystemClock;
+import org.apache.flume.interceptor.Interceptor;
 import org.apache.flume.tools.TimestampRoundDownUtil;
 
 import java.text.SimpleDateFormat;
@@ -379,6 +380,24 @@ public class BucketPath {
       false);
   }
 
+  private static String getReplacement(String raw, Map<String, String> headers) {
+    String[] fields = raw.split(":");
+    String replacement = headers.get(fields[0].trim());
+    switch (fields.length) {
+      case 1:
+        break;
+      case 2:
+        int startPos = Integer.parseInt(fields[1].trim());
+        replacement = replacement.substring(startPos);
+        break;
+      default:
+        startPos = Integer.parseInt(fields[1].trim());
+        int endPos = Integer.parseInt(fields[2].trim());
+        replacement = replacement.substring(startPos, endPos);
+    }
+    return replacement;
+  }
+
   /**
    * Replace all substrings of form %{tagname} with get(tagname).toString() and
    * all shorthand substrings of form %x with a special value.
@@ -411,9 +430,9 @@ public class BucketPath {
     while (matcher.find()) {
       String replacement = "";
       // Group 2 is the %{...} pattern
-      if (matcher.group(2) != null) {
-
-        replacement = headers.get(matcher.group(2));
+      String raw = matcher.group(2);
+      if (raw != null) {
+        replacement = getReplacement(raw, headers);
         if (replacement == null) {
           replacement = "";
 //          LOG.warn("Tag " + matcher.group(2) + " not found");
