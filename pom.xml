@@ -89,7 +89,7 @@ limitations under the License.
       </activation>
       <properties>
         <hadoop.version>1.2.1</hadoop.version>
-        <hbase.version>0.92.1</hbase.version>
+        <!-- <hbase.version>0.92.1</hbase.version> -->
         <hadoop.common.artifact.id>hadoop-core</hadoop.common.artifact.id>
         <thrift.version>0.7.0</thrift.version>
       </properties>
@@ -105,7 +105,7 @@ limitations under the License.
             <artifactId>hadoop-test</artifactId>
             <version>${hadoop.version}</version>
           </dependency>
-          <dependency>
+          <!-- <dependency>
             <groupId>org.apache.hbase</groupId>
             <artifactId>hbase</artifactId>
             <version>${hbase.version}</version>
@@ -117,7 +117,7 @@ limitations under the License.
             <version>${hbase.version}</version>
             <classifier>tests</classifier>
             <scope>test</scope>
-          </dependency>
+          </dependency> -->
           <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
@@ -138,7 +138,7 @@ limitations under the License.
       </activation>
       <properties>
         <hadoop.version>${hadoop2.version}</hadoop.version>
-        <hbase.version>0.94.2</hbase.version>
+        <!-- <hbase.version>0.94.2</hbase.version> -->
         <hadoop.common.artifact.id>hadoop-common</hadoop.common.artifact.id>
         <thrift.version>0.9.0</thrift.version>
       </properties>
@@ -180,7 +180,7 @@ limitations under the License.
             <version>${hadoop.version}</version>
           </dependency>
 
-          <dependency>
+          <!--<dependency>
             <groupId>org.apache.hbase</groupId>
             <artifactId>hbase</artifactId>
             <version>${hbase.version}</version>
@@ -192,7 +192,7 @@ limitations under the License.
             <version>${hbase.version}</version>
             <classifier>tests</classifier>
             <scope>test</scope>
-          </dependency>
+          </dependency> -->
 
           <dependency>
             <groupId>org.apache.zookeeper</groupId>
@@ -220,7 +220,7 @@ limitations under the License.
       </activation>
       <properties>
         <hadoop.version>${hadoop2.version}</hadoop.version>
-        <hbase.version>0.94.2</hbase.version>
+        <!-- <hbase.version>1.0.0</hbase.version> -->
         <hadoop.common.artifact.id>hadoop-common</hadoop.common.artifact.id>
         <thrift.version>0.9.0</thrift.version>
       </properties>
@@ -260,7 +260,7 @@ limitations under the License.
           <!-- Ideally this should be optional, but making it optional causes
           build to fail.
           -->
-          <dependency>
+          <!-- <dependency>
             <groupId>org.apache.hbase</groupId>
             <artifactId>hbase-client</artifactId>
             <version>${hbase.version}</version>
@@ -278,7 +278,7 @@ limitations under the License.
             <groupId>org.apache.hbase</groupId>
             <artifactId>hbase-testing-util</artifactId>
             <version>${hbase.version}</version>
-          </dependency>
+          </dependency> -->
 
           <!-- There should be no need for Flume to include the following two
            artifacts, but HBase pom has a bug which causes these to not get
@@ -286,7 +286,7 @@ limitations under the License.
            but making it optional causes build to fail.
           -->
 
-          <dependency>
+          <!-- <dependency>
             <groupId>org.apache.hbase</groupId>
             <artifactId>hbase-common</artifactId>
             <version>${hbase.version}</version>
@@ -313,7 +313,7 @@ limitations under the License.
             <version>${hbase.version}</version>
             <classifier>tests</classifier>
             <scope>test</scope>
-          </dependency>
+          </dependency> -->
 
           <dependency>
             <groupId>org.apache.zookeeper</groupId>
@@ -1161,11 +1161,11 @@ limitations under the License.
         <version>1.7.0-SNAPSHOT</version>
       </dependency>
 
-      <dependency>
+      <!-- <dependency>
         <groupId>org.apache.flume.flume-ng-sinks</groupId>
         <artifactId>flume-ng-hbase-sink</artifactId>
         <version>1.7.0-SNAPSHOT</version>
-      </dependency>
+      </dependency> -->
 
       <dependency>
         <groupId>org.apache.flume.flume-ng-sinks</groupId>
