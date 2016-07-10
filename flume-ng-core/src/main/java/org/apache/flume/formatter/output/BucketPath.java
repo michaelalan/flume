@@ -40,7 +40,7 @@ public class BucketPath {
    * These are useful to other classes which might want to search for tags in
    * strings.
    */
-  public static final String TAG_REGEX = "\\%(\\w|\\%)|\\%\\{([\\w\\.-]+)\\}";
+  public static final String TAG_REGEX = "\\%(\\w|\\%)|\\%\\{(.*)\\}";
   public static final Pattern tagPattern = Pattern.compile(TAG_REGEX);
 
   private static Clock clock = new SystemClock();
